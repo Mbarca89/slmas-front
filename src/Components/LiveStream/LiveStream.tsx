@@ -1,6 +1,6 @@
 const LiveStream = () => {
     return (
-        <div>
+        <div className="container">
             <div className="d-flex mt-5 mb-5">
                 <img src="/images/señal en vivo.png" alt="" />
             </div>

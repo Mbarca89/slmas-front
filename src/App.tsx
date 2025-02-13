@@ -8,6 +8,7 @@ const NavBar = lazy(() => import("./Components/NavBar/NavBar"))
 // const Products = lazy(() => import("./views/Products/Products"))
 // const Providers = lazy(() => import("./views/Providers/Providers"))
 // const Clients = lazy(() => import("./views/Clients/Clients"))
+import Footer from "./Components/Footer/Footer"
 
 const App = () => {
 
@@ -19,6 +20,7 @@ const App = () => {
             <NavBar />
             <Suspense>
               <Outlet />
+              <Footer></Footer>
             </Suspense>
           </>
         )} >

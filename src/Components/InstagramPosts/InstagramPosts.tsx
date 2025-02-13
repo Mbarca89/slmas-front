@@ -9,7 +9,7 @@ const InstagramPosts = () => {
     const [posts, setPosts] = useState<any>([])
 
     const getPosts = async () => {
-        const res = await axios.get('https://graph.instagram.com/me/media?fields=id,caption,like_count,media_url&limit=10&access_token=IGAAZAAmxPltptBZAE1aT0VFTnVzV2l6eUt6cWR4WnBZAX1NTdXRCMk01Q2RfTmRtYTNLVFBxYWFEdzNGNTZADTGdwZA1Nweno4RkYzMUNmR2JwNmZA5MTdQbTNOTUlQdFJzOHp1TmwzTG9heUhZAdU5wWWV4REdNQS1wN0k2S3c5NHQ5awZDZD')
+        const res = await axios.get('https://graph.instagram.com/me/media?fields=id,caption,like_count,media_url&limit=4&access_token=IGAAZAAmxPltptBZAE1aT0VFTnVzV2l6eUt6cWR4WnBZAX1NTdXRCMk01Q2RfTmRtYTNLVFBxYWFEdzNGNTZADTGdwZA1Nweno4RkYzMUNmR2JwNmZA5MTdQbTNOTUlQdFJzOHp1TmwzTG9heUhZAdU5wWWV4REdNQS1wN0k2S3c5NHQ5awZDZD')
         setPosts(res.data.data)
     }
 
@@ -17,45 +17,12 @@ const InstagramPosts = () => {
         getPosts()
     }, [])
 
-    const responsive = {
-        desktop: {
-            breakpoint: { max: 3000, min: 1024 },
-            items: 4,
-            slidesToSlide: 2, // optional, default to 1.
-        },
-        tablet: {
-            breakpoint: { max: 1025, min: 576 },
-            items: 3,
-            slidesToSlide: 2, // optional, default to 1.
-        },
-        mobile: {
-            breakpoint: { max: 576, min: 0 },
-            items: 2,
-            slidesToSlide: 1, // optional, default to 1.
-        },
-    };
-
-
-    console.log(posts)
-
     return (
-        <div className='mb-5'>
-            <div className='d-flex mb-5'>
-                <img className='h-100' src="/images/ultimas.png" alt="" />
-            </div>
-            <Carousel
-                responsive={responsive}
-                infinite={true}
-                className=""
-                containerClass="container ps-4 ps-lg-0 mb-3"
-                removeArrowOnDeviceType='mobile'
-                autoPlay={true}
-                autoPlaySpeed={4000}
-                showDots
-                
-            >
+        <div className='container d-flex flex-column mb-5'>
+            <div className='d-flex justify-content-between'>
+
                 {posts && posts.map((post: any) =>
-                    <div className='d-flex flex-column p-2 border rounded bg-light mb-5' style={{ height: '400px', width:'300px' }}>
+                    <div className='d-flex flex-column p-2 border rounded bg-light mb-5' style={{ height: '400px', width: '300px' }}>
                         <div className='h-50'>
                             <img className='w-100 h-100' src={post.media_url} alt="" />
                         </div>
@@ -70,8 +37,7 @@ const InstagramPosts = () => {
                         </div>
                     </div>
                 )}
-            </Carousel>
-
+            </div>
         </div>
     )
 }
