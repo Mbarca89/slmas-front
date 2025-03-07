@@ -9,7 +9,7 @@ const InstagramPosts = () => {
     const [posts, setPosts] = useState<any>([])
 
     const getPosts = async () => {
-        const res = await axios.get('https://graph.instagram.com/me/media?fields=id,caption,like_count,media_url&limit=4&access_token=IGAAZAAmxPltptBZAE1aT0VFTnVzV2l6eUt6cWR4WnBZAX1NTdXRCMk01Q2RfTmRtYTNLVFBxYWFEdzNGNTZADTGdwZA1Nweno4RkYzMUNmR2JwNmZA5MTdQbTNOTUlQdFJzOHp1TmwzTG9heUhZAdU5wWWV4REdNQS1wN0k2S3c5NHQ5awZDZD')
+        const res = await axios.get('https://graph.instagram.com/me/media?fields=id,caption,like_count,media_url&limit=4&access_token=IGAAZAAmxPltptBZAE5sT1JueDRERkZAQUW51Mm50ai1HSnEycDZAEdlNNRGpKQmhtUXZAzS0ozdXZAqd3ViR1plX0pMZAWpJUEhranNLRmY5a1VQNm5mdWtMQkZA5MUZAiVE5YTU1PSk5rdGUtUlFjdHN3Mkg5al9EYTA0bWJOLWRuQnFTYwZDZD')
         setPosts(res.data.data)
     }
 
